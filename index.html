@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Green Api</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.4.2/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.4.2/core.js"></script>
+    <style>
+       body {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            font-size: 32px;
+            color: #000;
+            font-weight: 200;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 991px) {
+            body {
+              flex-wrap: wrap;
+              white-space: initial;
+            }
+          }
+        .div {
+            display: flex;
+            margin-top: 20px;
+            width: 1000px;
+            max-width: 100%;
+            gap: 20px;
+          }
+          @media (max-width: 1500px) {
+            .div {
+              flex-wrap: wrap;
+              white-space: initial;
+            }
+          }
+        .input-container{
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: fit-content;
+        }
+        @media (max-width: 991px) {
+            .input-container {
+                  white-space: initial;
+                      padding: 0 20px;
+            }
+        }
+        .input {
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+          }
+        #answer {
+            font-family: Inter, sans-serif;
+            align-self: start;
+            gap: 0px;
+          }
+        #output {
+            font-size: 18px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+    <div class="input-container">
+        <input class="input" type="text" name="idInstance" id = "idInstance" placeholder="idInstance"><br>
+        <input class="input" type="text" name="apiTokenInstance" id="apiTokenInstance" placeholder="apiTokenInstance"><br>
+        <input class="input" id="getSettings" type="submit" value="getSettings"><br>
+        <input class="input" id="getStateInstance" type="submit" value="getStateInstance"><br>
+        <input class="input" type="text" name="chatId" id = "chatId" placeholder="77771234567"><br>
+        <input class="input" type="text" name="message" id="message" placeholder="message"><br>
+        <input class="input" id="sendMessage" type="submit" value="sendMessage"><br>
+        <input class="input" type="text" name="chatIdfile" id = "chatIdfile" placeholder="77771234567"><br>
+        <input class="input" type="text" name="urlFile" id="urlFile" placeholder="image"><br>
+        <input class="input" id="sendFileByUrl" type="submit" value="sendFileByUrl"><br>
+    </div>
+        <div id="answer">Ответ</div>
+        <div id="output"></div>
+    <script type="py" src="./main.py" config="./pyscript.toml">
+
+    </script>
+    </div>
+</body>
+</html>
