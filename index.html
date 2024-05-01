@@ -14,83 +14,103 @@
     <script type="module" src="https://pyscript.net/releases/2024.4.2/core.js"></script>
     <style>
        body {
-            display: flex;
-            flex-direction: column;
-            gap: 0px;
-            font-size: 32px;
-            color: #000;
-            font-weight: 200;
-            white-space: nowrap;
-        }
+      margin: 0;
+    }
 
-        @media (max-width: 991px) {
-            body {
-              flex-wrap: wrap;
-              white-space: initial;
-            }
-          }
-        .div {
-            display: flex;
-            margin-top: 20px;
-            width: 1000px;
-            max-width: 100%;
-            gap: 20px;
-          }
-          @media (max-width: 1500px) {
-            .div {
-              flex-wrap: wrap;
-              white-space: initial;
-            }
-          }
-        .input-container{
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            width: fit-content;
-        }
-        @media (max-width: 991px) {
-            .input-container {
-                  white-space: initial;
-                      padding: 0 20px;
-            }
-        }
-        .input {
-            align-items: center;
-            justify-content: center;
-            width: 300px;
-          }
-        #answer {
-            font-family: Inter, sans-serif;
-            align-self: start;
-            gap: 0px;
-          }
-        #output {
-            font-size: 18px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 300px;
-        }
+    * {
+      box-sizing: border-box;
+    }
+
+    .wrapper {
+      padding: 20px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input {
+      display: block;
+      width: 300px;
+      background: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid black;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input:focus {
+      border-bottom: 2px solid green;
+    }
+
+    .submit {
+      display: block;
+      width: 300px;
+      padding: 5px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: black;
+      background: greenyellow;
+      cursor: pointer;
+    }
+
+    .output-container {
+      flex-grow: 1;
+    }
+
+    #answer {
+      font-size: 24px;
+      color: red;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    #output {
+      border: 2px solid black;
+      border-radius: 20px;
+      min-height: 300px;
+    }
     </style>
 </head>
 <body>
-    <div class="div">
+  <div class="wrapper">
     <div class="input-container">
+      <div class="item">
         <input class="input" type="text" name="idInstance" id = "idInstance" placeholder="idInstance"><br>
         <input class="input" type="text" name="apiTokenInstance" id="apiTokenInstance" placeholder="apiTokenInstance"><br>
-        <input class="input" id="getSettings" type="submit" value="getSettings"><br>
-        <input class="input" id="getStateInstance" type="submit" value="getStateInstance"><br>
+        <input class="submit" id="getSettings" type="submit" value="getSettings"><br>
+        <input class="submit" id="getStateInstance" type="submit" value="getStateInstance"><br>
+      </div>
+      <div class="item">
         <input class="input" type="text" name="chatId" id = "chatId" placeholder="77771234567"><br>
         <input class="input" type="text" name="message" id="message" placeholder="message"><br>
-        <input class="input" id="sendMessage" type="submit" value="sendMessage"><br>
+        <input class="submit" id="sendMessage" type="submit" value="sendMessage"><br>
+      </div>
+      <div class="item">
         <input class="input" type="text" name="chatIdfile" id = "chatIdfile" placeholder="77771234567"><br>
         <input class="input" type="text" name="urlFile" id="urlFile" placeholder="image"><br>
-        <input class="input" id="sendFileByUrl" type="submit" value="sendFileByUrl"><br>
+        <input class="submit" id="sendFileByUrl" type="submit" value="sendFileByUrl"><br>
+      </div>
     </div>
-        <div id="answer">Ответ</div>
-        <div id="output"></div>
+    <div class="output-container">
+      <div id="answer">Ответ</div>
+      <div id="output"></div>
+    </div>
+  </div>
     <script type="py" src="./main.py" config="./pyscript.toml">
 
     </script>
-    </div>
 </body>
 </html>
